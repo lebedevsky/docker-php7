@@ -21,6 +21,20 @@ RUN rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.
 
 RUN yum -y clean all
 
+# composer
+CMD ['php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"']
+CMD ['php composer-setup.php']
+CMD ['php -r "unlink('composer-setup.php');"']
+CMD ['mv composer.phar /usr/local/bin/composer']
+
+# yii2
+CMD ['composer global require "fxp/composer-asset-plugin:^1.2.0"']
+
+# codecept
+CMD ['php -r "copy('http://codeception.com/codecept.phar', 'codecept');"']
+CMD ['mv codecept /usr/local/bin/codecept']
+CMD ['chmod a+x /usr/local/bin/codecept']
+
 EXPOSE 9000
 
 ENTRYPOINT ["php-fpm", "-F"]
