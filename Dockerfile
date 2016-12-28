@@ -2,8 +2,9 @@ FROM lebedevsky/docker-centos7
 MAINTAINER an.elebedevsky@gmail.com
 
 RUN rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm && \
-    rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm && \
-    yum install --enablerepo=webtatic-testing -y \
+    rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm
+
+RUN yum install -y \
         php71w \
         php71w-common \
         php71w-fpm \
@@ -17,7 +18,8 @@ RUN rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.
         php71w-opcache \
         php71w-xml \
         php71w-imap \
-        php71w-snmp
+        php71w-snmp \
+        php71w-pecl-xdebug
 
 RUN yum -y clean all
 
