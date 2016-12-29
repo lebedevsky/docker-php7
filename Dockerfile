@@ -37,6 +37,6 @@ RUN php -r "copy('http://codeception.com/codecept.phar', 'codecept');"
 RUN mv codecept /usr/local/bin/codecept
 RUN chmod a+x /usr/local/bin/codecept
 
-EXPOSE 9000
+EXPOSE 9000, 9001
 
 ENTRYPOINT ["php-fpm", "-F"]
