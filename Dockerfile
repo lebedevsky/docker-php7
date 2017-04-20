@@ -19,6 +19,10 @@ RUN yum install -y \
         php71w-xml \
         php71w-imap \
         php71w-snmp \
+        php71w-bcmath \
+        php71w-pecl-memcached \
+        php71w-pecl-mongodb \
+        php71w-pecl-redis \
         php71w-pecl-xdebug
 
 RUN yum -y clean all
@@ -30,7 +34,7 @@ RUN php -r "unlink('composer-setup.php');"
 RUN mv composer.phar /usr/local/bin/composer
 
 # yii2
-RUN composer global require "fxp/composer-asset-plugin:^1.2.0"
+RUN composer global require "fxp/composer-asset-plugin:^1.3.1"
 
 # codecept
 RUN php -r "copy('http://codeception.com/codecept.phar', 'codecept');"
