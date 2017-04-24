@@ -1,8 +1,7 @@
 FROM lebedevsky/docker-centos7
 MAINTAINER an.elebedevsky@gmail.com
 
-RUN rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm && \
-    rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm
+RUN rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm
 
 RUN yum install -y \
         php71w \
@@ -24,7 +23,6 @@ RUN yum install -y \
         php71w-pecl-mongodb \
         php71w-pecl-redis \
         php71w-pecl-xdebug
-
 RUN yum -y clean all
 
 # composer
