@@ -22,9 +22,7 @@ RUN apt-get install -y \
             php7.1-redis \
             php7.1-memcached \
             php7.1-mongodb \
-            php7.1-xdebug \
-            php-pear
-
+            php7.1-xdebug
 # clean
 RUN apt-get autoclean
 
@@ -47,4 +45,4 @@ COPY ./env/ ./etc
 
 EXPOSE 9000
 
-ENTRYPOINT ["php"]
+CMD ["php-fpm7.1"]
