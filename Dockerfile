@@ -1,8 +1,6 @@
 FROM lebedevsky/docker-ubuntu16
 MAINTAINER an.lebedevsky@gmail.com
 
-ARG env_mode=development
-
 RUN apt-add-repository -y ppa:ondrej/php && \
     apt-get update
 
@@ -42,7 +40,7 @@ RUN php -r "copy('http://codeception.com/codecept.phar', 'codecept.phar');"
 RUN mv codecept.phar /usr/local/bin/codecept
 RUN chmod a+x /usr/local/bin/codecept
 
-COPY ./env/$env_mode/ ./etc
+COPY ./env/ ./etc
 
 EXPOSE 9000
 
