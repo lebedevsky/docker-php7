@@ -25,6 +25,9 @@ RUN apt-get install -y \
             php7.1-xdebug \
             php-pear
 
+# clean
+RUN apt-get autoclean
+
 # composer
 RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
 RUN php composer-setup.php 
