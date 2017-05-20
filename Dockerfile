@@ -1,6 +1,8 @@
 FROM lebedevsky/docker-ubuntu16
 MAINTAINER an.lebedevsky@gmail.com
 
+ARG docker_env
+
 RUN apt-add-repository -y ppa:ondrej/php && \
     apt-get update
 
@@ -41,8 +43,10 @@ RUN php -r "copy('http://codeception.com/codecept.phar', 'codecept.phar');"
 RUN mv codecept.phar /usr/local/bin/codecept
 RUN chmod a+x /usr/local/bin/codecept
 
-COPY ./env/ ./etc
+COPY ./env/$docker_env ./etc
+
+RUN mkdir /var/log/php7
 
 EXPOSE 9000
 
-CMD ["php-fpm7.1"]
+ENTRYPOINT ["php-fpm7.1", "-F"]
