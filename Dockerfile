@@ -1,5 +1,5 @@
 FROM lebedevsky/docker-ubuntu16
-MAINTAINER an.lebedevsky@gmail.com
+MAINTAINER lebedevsky <an.lebedevsky@gmail.com>
 
 ARG docker_env
 
