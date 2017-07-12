@@ -1,7 +1,7 @@
 FROM lebedevsky/docker-ubuntu16
 MAINTAINER lebedevsky <an.lebedevsky@gmail.com>
 
-ARG docker_env
+ARG docker_env=development
 
 RUN apt-add-repository -y ppa:ondrej/php && \
     apt-get update
